@@ -10,6 +10,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/hotels" element={<List />} />
       <Route path="/hotel/:id" element={<Hotel />} />
+      <Route path="*" element={"404"} />
     </Routes>
   );
 }

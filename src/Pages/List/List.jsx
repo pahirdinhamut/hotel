@@ -5,6 +5,7 @@ import Navbar from "../../Component/Navbar/Navbar";
 import { useLocation } from "react-router-dom";
 import { format } from "date-fns";
 import { DateRange } from "react-date-range";
+import SearchItem from "../../Component/SearchItem/SearchItem";
 function List() {
   const location = useLocation();
   console.log(location);
@@ -49,12 +50,66 @@ function List() {
                   onChange={(item) => setDate([item.selection])}
                   minDate={new Date()}
                   ranges={date}
-                  className={"date"}
+                  className=""
                 />
               )}
             </div>
+            <div className="lsItem">
+              <label htmlFor="">Options</label>
+              <div className="lsOptions">
+                <div className="lsItemOptionsItem">
+                  <span className="lsOptionsText">
+                    Min Price <small>per night</small>
+                  </span>
+                  <input type="number" className="lsOptionInput" min={1} />
+                </div>
+                <div className="lsItemOptionsItem">
+                  <span className="lsOptionsText">
+                    Max Price <small>per night</small>
+                  </span>
+                  <input type="number" className="lsOptionInput" min={1} />
+                </div>
+                <div className="lsItemOptionsItem">
+                  <span className="lsOptionsText">Adult</span>
+                  <input
+                    type="number"
+                    className="lsOptionInput"
+                    placeholder={option.adult}
+                    min={1}
+                  />
+                </div>
+                <div className="lsItemOptionsItem">
+                  <span className="lsOptionsText">Children</span>
+                  <input
+                    type="number"
+                    className="lsOptionInput"
+                    placeholder={option.children}
+                    min={0}
+                  />
+                </div>
+                <div className="lsItemOptionsItem">
+                  <span className="lsOptionsText">Room</span>
+                  <input
+                    type="number"
+                    className="lsOptionInput"
+                    placeholder={option.room}
+                    min={1}
+                  />
+                </div>
+              </div>
+            </div>
+            <button>Search</button>
           </div>
-          <div className="listResult"></div>
+          <div className="listResult">
+            <SearchItem />
+            <SearchItem />
+            <SearchItem />
+            <SearchItem />
+            <SearchItem />
+            <SearchItem />
+            <SearchItem />
+            <SearchItem />
+          </div>
         </div>
       </div>
     </div>
